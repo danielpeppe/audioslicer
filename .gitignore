@@ -1,0 +1,7 @@
+.venv
+pretrained_models
+
+spotdl-4.2.5-win32.exe
+
+*.mp3
+*.wav
