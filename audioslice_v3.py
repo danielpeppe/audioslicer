@@ -47,8 +47,8 @@ class AudioMixerApp:
         controls_frame = tk.Frame(self.master)
         controls_frame.grid(row=0, column=0, columnspan=4, pady=10)
 
-        self.select_track_button = tk.Button(controls_frame, text="Select Track", command=self.select_track)
-        self.select_track_button.grid(row=0, column=0, padx=10)
+        self.slice_track_button = tk.Button(controls_frame, text="Slice Track", command=self.slice_track)
+        self.slice_track_button.grid(row=0, column=0, padx=10)
 
         self.select_folder_button = tk.Button(controls_frame, text="Select Folder", command=self.select_folder)
         self.select_folder_button.grid(row=0, column=1, padx=10)
@@ -82,7 +82,7 @@ class AudioMixerApp:
         self.seek_slider = ttk.Scale(seek_frame, from_=0, to=100, variable=self.track_position, orient="horizontal", command=self.seek_audio)
         self.seek_slider.pack(fill="x", padx=20)
 
-    def select_track(self):
+    def slice_track(self):
         file_path = filedialog.askopenfilename(filetypes=[("MP3 files", "*.mp3")])
         if file_path:
             base_name = os.path.splitext(os.path.basename(file_path))[0]
@@ -223,7 +223,7 @@ class AudioMixerApp:
                 if current_position > self.track_length:
                     current_position = self.track_length
                     # Optionally stop if the track ends
-                    # self.stop_audio()
+                    self.stop_audio()
 
                 self.track_position.set(current_position)
             time.sleep(0.1)
