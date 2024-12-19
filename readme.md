@@ -1,3 +1,5 @@
+Program to split vocals from instrumentals using tkinter GUI. Tested on Windows 11.
+
 ## Dependencies
 
 ```sh
